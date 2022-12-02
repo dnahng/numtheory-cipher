@@ -58,11 +58,17 @@ def mainMenu():
         elif choice == 3:
             bfMenu()
         elif choice == 4:
-            quit()
+            print("Thank you for using! Program will be exited")
+            # four()
         else:
             print("Invalid Choice...")
+
     except:
         print('Invalid Input...')
+
+    else:
+        if choice == 4:
+            sys.exit()
 
 
 def encMenu():
@@ -101,6 +107,8 @@ def bfMenu():
         print("Invalid Input, try again...")
 
 
+
+# main function calls
 mainMenu()
 try_again = input("\nTry again? y/n: ").lower()
 
