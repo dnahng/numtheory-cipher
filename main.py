@@ -28,6 +28,14 @@ def decryption(text, key):
     return result.upper()
 
 
+def bruteforce(text, possible_keys=26):
+    """Print possible plaintext for the provided ciphertext."""
+    for possible_key in range(1, possible_keys):
+        possible_text = decryption(text, possible_key)
+        print(f"Key #: {possible_key} - Plain text: {possible_text}")
+
+
+
 # MENU FUNCTIONS
 def mainMenu():
     try:
@@ -39,7 +47,7 @@ def mainMenu():
         print("""=== Caesar Cipher Program by Group 2 AN41 ===
             1 - Encryption
             2 - Decryption
-            3 - Brute Force (No key needed)
+            3 - Decrypt using Brute Force (No key needed)
             4 - Exit Program""")
 
         choice = int(input("What would you like to do?: "))
@@ -48,13 +56,14 @@ def mainMenu():
         elif choice == 2:
             decMenu()
         elif choice == 3:
-            'BLANK MUNA'
+            bfMenu()
         elif choice == 4:
             quit()
         else:
             print("Invalid Choice...")
     except:
         print('Invalid Input...')
+
 
 def encMenu():
     print("""\n=== Caesar Cipher: ENCRYPTION ===\n""")
@@ -67,6 +76,7 @@ def encMenu():
         print("Ciphertext: " + ans)
     except:
         print("Invalid Input, try again...")
+
 
 def decMenu():
     print("""\n=== Caesar Cipher: DECRYPTION ===\n""")
@@ -81,10 +91,19 @@ def decMenu():
         print("Invalid Input, try again...")
 
 
+def bfMenu():
+    print("""\n=== Caesar Cipher: BRUTE FORCE ===""")
+    print("Test all possible shift keys 26-letter alphabet A-Z\n")
+    try:
+        txt = input("Please enter the message you want to decrypt: ")
+        bruteforce(txt)
+    except:
+        print("Invalid Input, try again...")
+
+
 mainMenu()
 try_again = input("\nTry again? y/n: ").lower()
 
 while try_again == 'y':
     mainMenu()
     try_again = input("\nTry again? y/n: ").lower()
-
