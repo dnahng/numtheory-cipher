@@ -50,7 +50,7 @@ def mainMenu():
             3 - Decrypt using Brute Force (No key needed)
             4 - Exit Program""")
 
-        choice = int(input("What would you like to do?: "))
+        choice = int(input("What would you like to do? "))
         if choice == 1:
             encMenu()
         elif choice == 2:
